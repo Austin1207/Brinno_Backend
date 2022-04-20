@@ -1,7 +1,7 @@
-import aws from "aws-sdk";
-import dotenv from "dotenv"; 
-import crypto from "crypto";
-import { promisify } from "util";
+const aws = require("aws-sdk");
+const dotenv = require("dotenv"); 
+const crypto = require("crypto");
+const {promisify} = require("util");
 const randomBytes = promisify(crypto.randomBytes);
 
 dotenv.config();
@@ -19,7 +19,7 @@ const s3 = new aws.S3({
     signatureVersion: 'v4'
 })
 
-export async function imgUploadURL() {
+async function imgUploadURL() {
     const rawBytes = await randomBytes(16);
     const imageName = rawBytes.toString('hex') + ".png";
 
@@ -33,7 +33,7 @@ export async function imgUploadURL() {
     return uploadURL
 }
 
-export async function pdfUploadURL() {
+async function pdfUploadURL() {
     const rawBytes = await randomBytes(16);
     const pdfName = rawBytes.toString('hex') + ".pdf";
 
@@ -46,3 +46,6 @@ export async function pdfUploadURL() {
     const uploadURL = await s3.getSignedUrlPromise('putObject', params)
     return uploadURL
 }
+
+module.exports = imgUploadURL;
+module.exports = pdfUploadURL;

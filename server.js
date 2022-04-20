@@ -1,6 +1,7 @@
-import express from "express";
-import { imgUploadURL, pdfUploadURL } from './s3.js';
-import cors from "cors";
+const express = require("express");
+const imgUploadURL = require("./s3.js");
+const pdfUploadURL = require("./s3.js");
+const cors = require("cors");
 
 const app = express();
 
