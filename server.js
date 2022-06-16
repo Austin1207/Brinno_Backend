@@ -17,4 +17,9 @@ app.get('/s3PdfUrl', async (req, res) => {
     res.send({url})
 })
 
+app.get('/s3jsoninputUrl', async (req, res) => {
+    const url = await jsonUploadURL();
+    res.send({url})
+})
+
 app.listen(3000, () => console.log("Listening on port 3000"));
