@@ -62,6 +62,8 @@ async function jsonUploadURL() {
     return uploadURL
 }
 
-module.exports = imgUploadURL;
-module.exports = pdfUploadURL;
-module.exports = jsonUploadURL;
+module.exports = {
+    ImgMethod: imgUploadURL,
+    PdfMethod: pdfUploadURL,
+    JsonMethod: jsonUploadURL,
+}

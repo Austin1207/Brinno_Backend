@@ -1,7 +1,8 @@
 const express = require("express");
-const imgUploadURL = require("./s3.js");
-const pdfUploadURL = require("./s3.js");
-const jsonUploadURL = require("./s3.js");
+const UploadURL = require("./s3.js");
+const imgUploadURL = UploadURL.ImgMethod;
+const pdfUploadURL = UploadURL.PdfMethod;
+const jsonUploadURL = UploadURL.JsonMethod;
 const cors = require("cors");
 
 const app = express();
